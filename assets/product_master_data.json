@@ -1,0 +1,208 @@
+{
+  "products":[
+    {
+    "role":"1",
+      "name": "Dalat Milk",
+      "detail":"Sản phẩm sữa thanh trùng Dalatmilk được chế biến từ sữa bò tươi nguyên chất từ cao nguyên Lâm Đồng – nơi có nguồn nguyên liệu sữa tươi chất lượng cao được vắt từ những giống bò sữa tốt nhất trong điều kiện khí hậu trung bình từ 15 – 25oC và độ cao trên 1000m Mang đến cảm giác khác biệt của vị ngọt thanh khiết từ nguồn sữa tươi chất lượng cao",
+      "price": 12000,
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3K_epxurbBSJM0Bm3BDlbIACIK00LkgnKhg&usqp=CAU"
+    },
+    {"role":"1",
+    "name": "Sữa bà bầu hương vani",
+    "detail": "Sữa bà bầu vị hương vani, giàu canxi và sắt",
+    "price": 12000,
+      "image":"https://cdn.chiaki.vn/unsafe/0x800/left/top/smart/filters:quality(75)/https://chiaki.vn/upload/news/2019/06/top-6-sua-ba-bau-tot-nhat-duoc-chuyen-gia-khuyen-dung-13062019125007.jpg"
+    },
+    {"role":"1",
+    "name": "Sữa bà bầu hương dứa",
+    "detail": "Sữa bà bầu vị hương dứa, giàu axit folic và vitamin D",
+    "price": 12000,
+      "image":"https://media.shoptretho.com.vn/upload/image/news/20180114/sua-similac-mom-iq-900g-moi-1.png"
+    },
+    {"role":"2",
+    "name": "Sữa bà bầu hương dâu",
+    "detail": "Sữa bà bầu vị hương dâu, giàu chất xơ và vitamin C",
+   "price": 12000,
+      "image":"https://www.hangngoainhap.com.vn/images/201811/goods_img/2561-p2-1543308485.jpg"
+    },
+    {"role":"2",
+    "name": "Sữa bà bầu hương cam",
+    "detail": "Sữa bà bầu vị hương cam, giàu chất chống oxy hóa và axit omega-3",
+    "price": 12000,
+      "image":"https://salt.tikicdn.com/ts/product/7a/0f/75/564f8adc9b940a42dc4411b40ea5303d.jpg"
+    },
+    {"role":"3",
+    "name": "Sữa bà bầu hương dừa",
+    "detail": "Sữa bà bầu vị hương dừa, giàu chất béo tự nhiên và kali",
+   "price": 12000,
+      "image":"https://www.acfc.com.vn/wp/wp-content/uploads/2022/06/top-10-loai-sua-cho-ba-bau-tot-nhat-hien-nay-7.jpg"
+    },
+    {"role":"3",
+    "name": "Sữa bà bầu hương dâu tây",
+    "detail": "Sữa bà bầu vị hương dâu tây, giàu axit folic và chất chống oxy hóa",
+    "price": 12000,
+      "image":"https://image-us.eva.vn/upload/2-2020/images/2020-06-10/top-11-sua-cho-ba-bau-tot-va-de-uong-bo-sung-du-duong-chat-khi-mang-thai-4-1591762525-220-width600height599.jpg"
+    },
+
+    {
+      "role":"3",
+    "name": "Áo thun nam",
+    "detail": "Áo thun nam màu trắng",
+    "price": 200000,
+    "image": "https://bizweb.dktcdn.net/100/399/392/articles/ao-thun-nam-dep-gia-re-3.jpeg?v=1622709874737"
+  },
+  {
+    "role":"3",
+    "name": "Áo sơ mi nữ",
+    "detail": "Áo sơ mi nữ dài tay",
+    "price": 350000,
+    "image": "https://hoyang.vn/wp-content/uploads/2022/01/set-do-nu-dep.jpg"
+  },
+  {
+    "role":"3",
+    "name": "Quần jean nam",
+    "detail": "Quần jean nam màu xanh",
+    "price": 450000,
+    "image": "https://bizweb.dktcdn.net/100/287/440/products/ao-thun-nam-local-brand-mau-den-15.jpg?v=1618630966233"
+  },
+  {
+    "role":"3",
+    "name": "Đầm dạ hội",
+    "detail": "Đầm dạ hội dài",
+    "price": 800000,
+    "image": "https://prices.vn/storage/photo/product/bo-quan-ao-nu-thoi-trang-cao-cap.png"
+  },
+
+    {
+      "role":"4",
+    "name": "Máy hút sữa điện tử A",
+    "detail": "Máy hút sữa điện tử với công nghệ tiên tiến",
+    "price": 1500000,
+    "image": "https://mekhoeconthongminh.com/upload/product/2021/03/6049a3c92b2b8-11032021115953.png"
+  },
+  {
+    "role":"4",
+    "name": "Máy hút sữa cầm tay B",
+    "detail": "Máy hút sữa cầm tay nhỏ gọn",
+    "price": 500000,
+    "image":  "https://mekhoeconthongminh.com/upload/product/2021/03/6049a3c92b2b8-11032021115953.png"
+  },
+  {
+    "role":"4",
+    "name": "Máy hút sữa tự động C",
+    "detail": "Máy hút sữa tự động với chế độ massage",
+    "price": 2500000,
+    "image":  "https://mekhoeconthongminh.com/upload/product/2021/03/6049a3c92b2b8-11032021115953.png"
+  },
+  {
+    "role":"4",
+    "name": "Máy hút sữa đôi D",
+    "detail": "Máy hút sữa đôi với hai bộ hút độc lập",
+    "price": 3500000,
+    "image": "https://giadinhsua.vn/wp-content/uploads/2021/06/tui-tru-sua-Unimom-20.jpg"
+  },
+    {
+          "role":"5",
+    "name": "Túi trữ sữa đáy vuông",
+    "detail": "Túi trữ sữa có đáy vuông, dung tích lớn",
+    "price": 150000,
+    "image": "https://bizweb.dktcdn.net/100/347/970/products/tui-tru-sua-sunmum-thai-lan-hop-50-cai.png?v=1556424956887"
+  },
+  {
+              "role":"5",
+    "name": "Túi trữ sữa có nắp",
+    "detail": "Túi trữ sữa có nắp đậy kín, tiện lợi",
+    "price": 80000,
+    "image": "https://maunhi.com/wp-content/uploads/2021/06/tui-tru-sua-sunmum-20pcs-50pcs-3.jpg"
+  },
+  {
+              "role":"5",
+    "name": "Túi trữ sữa có mút",
+    "detail": "Túi trữ sữa có mút giúp giữ nhiệt tốt",
+    "price": 120000,
+    "image": "https://www.kidsplaza.vn/blog/wp-content/uploads/2019/07/T%C3%BAi-tr%E1%BB%AF-s%E1%BB%AFa-sunmum-review.jpg"
+  },
+  {
+              "role":"5",
+    "name": "Túi trữ sữa cao cấp",
+    "detail": "Túi trữ sữa chất liệu cao cấp, bền bỉ",
+    "price": 200000,
+    "image": "https://bizweb.dktcdn.net/100/307/229/products/sunmumum-moi1.jpg?v=1545903773650"
+  },
+    {
+      "role":"6",
+    "name": "Áo khoác bé trai",
+    "detail": "Áo khoác bé trai màu xanh đậm",
+    "price": 250000,
+    "image": "https://nhungbonghoanho.com/wp-content/uploads/2018/07/Quan-ao-be-trai-mua-he-1.jpg"
+  },
+  {"role":"6",
+    "name": "Quần jeans bé trai",
+    "detail": "Quần jeans bé trai màu xanh",
+    "price": 180000,
+    "image": "https://bizweb.dktcdn.net/100/032/149/products/quan-ao-cho-be-trai-1-2-tuoi-c906.jpg?v=1522377716483"
+  },
+  {"role":"6",
+    "name": "Áo thun bé trai",
+    "detail": "Áo thun bé trai màu trắng",
+    "price": 80000,
+    "image": "https://tokyolife.vn/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/b/_/b_qu_n_o_b_trai_e5cls008e-430k_1.jpg"
+  },
+  {"role":"6",
+    "name": "Giày sneaker bé trai",
+    "detail": "Giày sneaker bé trai màu đen",
+    "price": 150000,
+    "image": "https://giaymt.com.vn/wp-content/uploads/2022/10/giay-the-thao-nu-MY861-3.jpg"
+  },
+    {"role":"7",
+    "name": "Váy hoa bé gái",
+    "detail": "Váy hoa bé gái màu pastel",
+    "price": 200000,
+    "image": "https://lzd-img-global.slatic.net/g/p/7ef77c2f4aa824cd37938617657d29ed.jpg_720x720q80.jpg"
+  },
+  {"role":"7",
+    "name": "Áo dài truyền thống",
+    "detail": "Áo dài bé gái với hoa văn truyền thống",
+    "price": 180000,
+    "image": "https://bizweb.dktcdn.net/100/032/149/files/quan-ao-be-gai-1-2-3-4-tuoi-m696.jpg?v=1545974404566"
+  },
+  {"role":"7",
+    "name": "Balo hình công chúa",
+    "detail": "Balo bé gái hình công chúa",
+    "price": 120000,
+    "image": "https://sakos.vn/wp-content/uploads/2022/06/balo-tre-em-Sakos-Genius-hong-2.png"
+  },
+  {"role":"7",
+    "name": "Giày búp bê bé gái",
+    "detail": "Giày búp bê bé gái màu hồng",
+    "price": 90000,
+    "image": "https://img2.dilyno.com/Go6A6H9JVAfq2MHGzT6RmO712K1EJLbSHKLnoubNMWY/rs:fill:800:800:0/aHR0cDovL3MzLmFwLW5vcnRoZWFzdC0xLndhc2FiaXN5cy5jb20vaG5jLWNybS1zMy5nZXRjb252ZXJzaW9uLmNvL3dlYmVjb20vMjAyMS8xMS9kMTE4ODU3OTM2OWM4ODM5ZGY0MDUyNzRhYTI3NWM3NC5wbmc.jpg"
+  },
+    {"role":"8",
+    "name": "Bình nước thể thao",
+    "detail": "Bình nước thể thao dung tích 500ml",
+    "price": 100000,
+    "image": "https://cdn.tgdd.vn/Products/Images/4930/286426/binh-dung-nuoc-nhua-1000-ml-delites-wp-22801-160822-060305-600x600.jpg"
+  },
+  {"role":"8",
+    "name": "Gương trang điểm",
+    "detail": "Gương trang điểm cầm tay có đèn LED",
+    "price": 150000,
+    "image": "https://dehome.vn/images/products/2020/08/21/original/guong-trang-diem-co-den-led-dehome---d6126a_1598004260.jpg.jpg"
+  },
+  {"role":"8",
+    "name": "Balo đựng laptop",
+    "detail": "Balo đựng laptop 15 inch chống thấm nước",
+    "price": 250000,
+    "image": "https://www.gento.vn/wp-content/uploads/2022/06/balo-nam-form-rong-da-that-gento-b315.jpg"
+  },
+  {"role":"8",
+    "name": "Ốp điện thoại",
+    "detail": "Ốp điện thoại bảo vệ chống va đập",
+    "price": 80000,
+    "image": "https://hnship.vn/upload/images/2022/09/10/10-09-2022-0-1662808393631c714998a45-0.jpg"
+  }
+  ]
+    
+  
+}
