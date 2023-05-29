@@ -1,5 +1,5 @@
-import 'package:workmanager_example/const.dart';
 import 'package:flutter/material.dart';
+import 'package:kufood/app/const.dart';
 
 class DefaultButton extends StatelessWidget {
   DefaultButton({
@@ -31,18 +31,18 @@ class DefaultButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: kOrangeColor,
           borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: kOrangeColor.withOpacity(0.5),
-              blurRadius: 15,
-              offset: Offset(0, 12),
-            ),
-            BoxShadow(
-              color: kOrangeColor.withOpacity(0.5),
-              blurRadius: 40,
-              offset: Offset(-3, -3),
-            ),
-          ],
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: kOrangeColor.withOpacity(0.5),
+          //     blurRadius: 15,
+          //     offset: Offset(0, 12),
+          //   ),
+          //   BoxShadow(
+          //     color: kOrangeColor.withOpacity(0.5),
+          //     blurRadius: 40,
+          //     offset: Offset(-3, -3),
+          //   ),
+          // ],
         ),
         child: Center(
           child: Text(

@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:workmanager_example/data/cache_manager.dart';
+import 'package:kufood/app/data/cache_manager.dart';
+
 import 'package:hive/hive.dart';
 
 part 'user_model_local.g.dart';

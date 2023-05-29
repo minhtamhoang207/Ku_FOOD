@@ -1,3 +1,4 @@
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:flutter/material.dart';
@@ -36,23 +37,11 @@ class _SigninScreenState extends State<SigninScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            register == false ? 'Đăng nhập' : 'Đăng ký',
-            style: const TextStyle(
-              color: Colors.black87,
-              fontWeight: FontWeight.bold,
-              fontSize: 24,
-            ),
-          ),
-          elevation: 0,
-          backgroundColor: kBgColor,
-          automaticallyImplyLeading: false,
-        ),
-        backgroundColor: kBgColor,
+        backgroundColor: Colors.white,
         body: Container(
             width: double.infinity,
             height: double.infinity,
+            margin: const EdgeInsets.only(top: 150),
             decoration: const BoxDecoration(color: Colors.white),
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Column(
@@ -103,7 +92,7 @@ class _SigninScreenState extends State<SigninScreen> {
                                   child: Text(' Quyên mật khẩu?',
                                       style: TextStyle(
                                           fontSize: 14,
-                                          color: Colors.orange[900],
+                                          color: Color(0xff8BC53F),
                                           fontWeight: FontWeight.w600)),
                                 ),
                               ],
@@ -184,7 +173,7 @@ class _SigninScreenState extends State<SigninScreen> {
                                   child: Text(' Đăng ký ngay',
                                       style: TextStyle(
                                           fontSize: 14,
-                                          color: Colors.orange[900],
+                                          color: Color(0xff8BC53F),
                                           fontWeight: FontWeight.w600)),
                                 ),
                               ],
@@ -277,8 +266,7 @@ Widget renderBody(BuildContext context, Future signInWithEmailAndPassword) {
               await signInWithEmailAndPassword;
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => const ForgotPasswordScreen()),
+                MaterialPageRoute(builder: (context) => const NavigatorHome()),
               );
             },
           ),
@@ -315,11 +303,21 @@ Widget renderHeader() {
   return Container(
     height: 100,
     alignment: Alignment.center,
-    child: const Text(
-      "Chào mừng đến với\n Smart Home",
-      textAlign: TextAlign.center,
-      style: TextStyle(
-          fontSize: 28, color: Colors.black, fontWeight: FontWeight.w700),
+    //assets/images/img_splash.png
+    child: Row(
+      children: [
+        SvgPicture.asset(
+          "assets/images/logo.svg",
+          width: 70,
+        ),
+        SizedBox(
+          height: 2,
+        ),
+        SvgPicture.asset(
+          "assets/images/name_logo.svg",
+          width: 70,
+        ),
+      ],
     ),
   );
 }

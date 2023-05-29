@@ -1,9 +1,10 @@
 import 'package:kufood/app/auth.dart';
 import 'package:kufood/app/data/cache_manager.dart';
 import 'package:kufood/app/modules/signin/signin_screen.dart';
-import 'package:kufood/app/modules/signin/widget/forgot_password_screen.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kufood/app/modules/signin/widget/forgot_password_screen.dart';
 
 class WidgetTree extends StatefulWidget {
   const WidgetTree({Key? key}) : super(key: key);
@@ -23,9 +24,7 @@ class _WidgetTreeState extends State<WidgetTree> {
         print(snapshot);
         var data = snapshot.data;
         if (snapshot.hasData) {
-          // await _cacheManager
-          //     .addUserToCached(UserLocal(name: data!.email ?? "", phone: ""));
-          return const ForgotPasswordScreen();
+          return const NavigatorHome();
         } else {
           return const SigninScreen();
         }

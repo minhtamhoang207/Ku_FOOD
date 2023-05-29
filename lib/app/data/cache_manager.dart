@@ -1,6 +1,6 @@
-import 'package:workmanager_example/data/model/board_local/board_model.dart';
-import 'package:workmanager_example/data/model/user_local/user_model_local.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:kufood/app/data/model/board_local/board_model.dart';
+import 'package:kufood/app/data/model/user_local/user_model_local.dart';
 
 class CacheManager {
   static CacheManager? _instance;
