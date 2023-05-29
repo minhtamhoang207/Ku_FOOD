@@ -29,6 +29,8 @@ dependencies:
   image_gallery_saver: ^1.7.1
   fluttertoast: ^8.0.8
   share_plus: ^7.0.0
+  firebase_auth: ^4.1.2
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.0
