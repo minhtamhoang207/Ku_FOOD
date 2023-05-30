@@ -158,6 +158,29 @@ class ProfileView extends GetView<ProfileController> {
                             )
                           ],
                         ),
+                      ),
+                      const Gap(32),
+                      GestureDetector(
+                        onTap: () {
+                          controller.deleteAccount();
+                        },
+                        child: Row(
+                          children: const [
+                            Icon(Icons.cancel_outlined,
+                                size: 26, color: Colors.grey //Color(0xff0A2A3),
+                                ),
+                            Gap(19),
+                            Expanded(
+                              child: Text(
+                                'Delete account',
+                                style: TextStyle(
+                                    color: Color(0xFF4F4F4F),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            )
+                          ],
+                        ),
                       )
                     ],
                   ),

@@ -116,6 +116,7 @@ class _SigninScreenState extends State<SigninScreen> {
                                     .contains(emailController.text ?? "");
                               }).toList() ??
                               [];
+                          print("giang log" + account.length.toString());
                           if (account.length > 0) {
                             Fluttertoast.showToast(
                                 msg: "Tài khoản của bạn đã bị xoá");
@@ -304,18 +305,18 @@ Widget renderHeader() {
     height: 100,
     alignment: Alignment.center,
     //assets/images/img_splash.png
-    child: Row(
+    child: Column(
       children: [
         SvgPicture.asset(
           "assets/images/logo.svg",
           width: 70,
         ),
         SizedBox(
-          height: 2,
+          height: 5,
         ),
         SvgPicture.asset(
           "assets/images/name_logo.svg",
-          width: 70,
+          width: 80,
         ),
       ],
     ),
