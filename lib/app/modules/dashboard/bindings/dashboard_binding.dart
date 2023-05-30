@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:kufood/app/modules/favourite/controllers/favourite_controller.dart';
 import 'package:kufood/app/modules/profile/controllers/profile_controller.dart';
 
 import '../../discount/controllers/discount_controller.dart';
@@ -13,7 +14,7 @@ class DashboardBinding extends Bindings {
     );
     Get.put<ProfileController>(ProfileController());
     Get.put<HomeController>(HomeController());
-
+    Get.put<FavouriteController>(FavouriteController());
     Get.put<DiscountController>(DiscountController());
   }
 }
