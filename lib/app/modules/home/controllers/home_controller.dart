@@ -1,8 +1,12 @@
+import 'dart:convert';
+
+import 'package:flutter/services.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:kufood/app/config/assets.gen.dart';
 import 'package:kufood/app/data/cache_manager.dart';
+import 'package:kufood/app/data/model/product/product.dart';
 import 'package:kufood/app/data/model/user_local/user_model_local.dart';
 
 class HomeController extends GetxController {
@@ -19,8 +23,20 @@ class HomeController extends GetxController {
   List<String> listCategory = ['Salad', 'Pizza', 'Burger', 'Drink'];
   var userLocal = Rx<UserLocal?>(null);
   final cacheManage = CacheManager.instance;
+  var listProduct = Rx<List<ProductModel>>([]);
   @override
   void onInit() async {
+    String jsonString =
+        await rootBundle.loadString('assets/product_master_data.json');
+
+    // Decode the JSON into a Dart list
+    Map<String, dynamic> data = json.decode(jsonString);
+
+    List<ProductModel> listProductResponse = (data['products'] as List)
+        .map((item) => ProductModel.fromJson(item))
+        .toList();
+    listProduct.value = listProductResponse;
+
     userLocal.value = await cacheManage.getUserCached();
     position.value = await _determinePosition();
     print("Giang log" +

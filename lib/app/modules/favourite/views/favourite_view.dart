@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -16,36 +17,37 @@ class FavouriteView extends GetView<FavouriteController> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Color(0xFFECECCC),
-                Colors.white,
-                Colors.white,
-              ],
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [
+            Color(0xFFECECCC),
+            Colors.white,
+            Colors.white,
+          ],
+        ),
+      ),
+      child: Obx(
+        () => ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+          children: [
+            const Gap(50),
+            const Text(
+              'Favorite food',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600),
             ),
-          ),
-          child: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
-            children: [
-              const Gap(50),
-              const Text(
-                'Favorite food',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600
-                ),
-              ),
-              const Gap(40),
-
-              ...List.generate(10, (index) {
-                return GestureDetector(
+            const Gap(40),
+            ...List.generate(controller.listProduct.value.length, (index) {
+              return Obx(
+                () => GestureDetector(
                   onTap: () {
-                    Get.toNamed(Routes.FOOD_DETAIL);
+                    Get.toNamed(Routes.FOOD_DETAIL,
+                        arguments: controller.listProduct.value[index]);
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 16),
@@ -76,27 +78,29 @@ class FavouriteView extends GetView<FavouriteController> {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: CachedNetworkImageProvider(controller
+                                        .listProduct.value[index].image),
+                                    fit: BoxFit.cover,
+                                  ),
                                   border: Border.all(
-                                      width: 2, color: AppColors.primary)
-                              ),
+                                      width: 2, color: AppColors.primary)),
                             ),
                             const Gap(14),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
+                                children: [
                                   Text(
-                                    'Fruit salad',
+                                    controller.listProduct.value[index].name,
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Colors.black
-                                    ),
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(color: Colors.black),
                                   ),
-                                  Gap(4),
-                                  Text(
+                                  const Gap(4),
+                                  const Text(
                                     '2 km - 10 min delivery',
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
@@ -104,19 +108,17 @@ class FavouriteView extends GetView<FavouriteController> {
                                     style: TextStyle(
                                         color: Color(0xFFA0A2A3),
                                         fontSize: 12,
-                                        fontWeight: FontWeight.w400
-                                    ),
+                                        fontWeight: FontWeight.w400),
                                   ),
-                                  Gap(4),
+                                  const Gap(4),
                                   Text(
-                                    '\$ 14',
+                                    '\$ ${controller.listProduct.value[index].price}',
                                     textAlign: TextAlign.center,
                                     maxLines: 1,
                                     style: TextStyle(
                                         color: Color(0xFFFF6B6B),
                                         fontSize: 20,
-                                        fontWeight: FontWeight.w500
-                                    ),
+                                        fontWeight: FontWeight.w500),
                                   ),
                                 ],
                               ),
@@ -125,23 +127,23 @@ class FavouriteView extends GetView<FavouriteController> {
                             Container(
                               padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(width: 2, color: AppColors.primary)
-                              ),
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                      width: 2, color: AppColors.primary)),
                               child: SvgPicture.asset(
                                 Assets.icons.icHeart,
                                 color: AppColors.primary,
                               ),
                             )
                           ],
-                        )
-                    ),
+                        )),
                   ),
-                );
-              })
-            ],
-          ),
-        )
-    );
+                ),
+              );
+            })
+          ],
+        ),
+      ),
+    ));
   }
 }

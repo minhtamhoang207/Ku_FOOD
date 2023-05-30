@@ -96,7 +96,9 @@ class HomeView extends GetView<HomeController> {
                 ),
               ],
             ),
-            const PopularList(),
+            Obx(() => PopularList(
+                  listProduct: controller.listProduct.value,
+                )),
             const Gap(32),
             Row(
               children: [
@@ -142,7 +144,10 @@ class HomeView extends GetView<HomeController> {
                 ),
               ],
             ),
-            DiscountList(homeController: controller),
+            Obx(() => DiscountList(
+                  homeController: controller,
+                  listProduct: controller.listProduct.value,
+                )),
             const Gap(32),
             Row(
               children: [
@@ -165,102 +170,114 @@ class HomeView extends GetView<HomeController> {
                 ),
               ],
             ),
-            GridView.count(
-              shrinkWrap: true,
-              padding: const EdgeInsets.only(top: 16),
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 2,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              childAspectRatio: 220 / 280,
-              children: List.generate(6, (index) {
-                return GestureDetector(
-                  onTap: () {
-                    Get.toNamed(Routes.FOOD_DETAIL);
-                  },
-                  child: SizedBox(
-                      height: 220,
-                      child: Stack(
-                        children: [
-                          Container(
-                            margin: const EdgeInsets.only(top: 50, bottom: 3),
-                            height: 220,
-                            width: Get.width / 2,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(24),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  spreadRadius: 2,
-                                  blurRadius: 2,
-                                  offset: const Offset(
-                                      0, 0.5), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                          ),
-                          Positioned.fill(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                    child: Container(
-                                      height: 124,
-                                      width: 124,
-                                      decoration: BoxDecoration(
-                                          color: AppColors.primary,
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                              color: AppColors.primary,
-                                              width: 2),
-                                          image: const DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: NetworkImage(
-                                                  'https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg'))),
-                                    ),
+            Obx(
+              () => GridView.count(
+                shrinkWrap: true,
+                padding: const EdgeInsets.only(top: 16),
+                physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 220 / 280,
+                children:
+                    List.generate(controller.listProduct.value.length, (index) {
+                  return GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.FOOD_DETAIL,
+                          arguments: controller.listProduct.value[index]);
+                    },
+                    child: SizedBox(
+                        height: 220,
+                        child: Stack(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 50, bottom: 3),
+                              height: 220,
+                              width: Get.width / 2,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(24),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.2),
+                                    spreadRadius: 2,
+                                    blurRadius: 2,
+                                    offset: const Offset(
+                                        0, 0.5), // changes position of shadow
                                   ),
-                                  const Gap(12),
-                                  const Text(
-                                    'Fruit salad',
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(color: Colors.black),
-                                  ),
-                                  const Gap(12),
-                                  const Text(
-                                    '\$ 14',
-                                    textAlign: TextAlign.center,
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                        color: Color(0xFFFF6B6B),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  const Gap(12),
-                                  const Text(
-                                    '2 km - 10 min delivery',
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        color: Color(0xFFA0A2A3),
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  const Gap(12)
                                 ],
                               ),
                             ),
-                          )
-                        ],
-                      )),
-                );
-              }),
+                            Positioned.fill(
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        height: 124,
+                                        width: 124,
+                                        decoration: BoxDecoration(
+                                            color: AppColors.primary,
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                                color: AppColors.primary,
+                                                width: 2),
+                                            image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: NetworkImage(controller
+                                                    .listProduct
+                                                    .value[index]
+                                                    .image))),
+                                      ),
+                                    ),
+                                    const Gap(12),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 8),
+                                      child: Text(
+                                        controller
+                                            .listProduct.value[index].name,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                            color: Colors.black),
+                                      ),
+                                    ),
+                                    const Gap(12),
+                                    Text(
+                                      '\$ ${controller.listProduct.value[index].price}',
+                                      textAlign: TextAlign.center,
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                          color: Color(0xFFFF6B6B),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                    const Gap(12),
+                                    const Text(
+                                      '2 km - 10 min delivery',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Color(0xFFA0A2A3),
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                    const Gap(12)
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        )),
+                  );
+                }),
+              ),
             ),
             const Gap(32),
           ],
