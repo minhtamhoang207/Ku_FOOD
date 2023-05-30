@@ -10,6 +10,8 @@ import '../modules/food_detail/bindings/food_detail_binding.dart';
 import '../modules/food_detail/views/food_detail_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/navigator/bindings/navigator_binding.dart';
+import '../modules/navigator/views/navigator_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.FOOD_DETAIL,
       page: () => const FoodDetailView(),
       binding: FoodDetailBinding(),
+    ),
+    GetPage(
+      name: _Paths.NAVIGATOR,
+      page: () => NavigatorView(),
+      binding: NavigatorBinding(),
     ),
   ];
 }
