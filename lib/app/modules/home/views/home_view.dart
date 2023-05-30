@@ -31,11 +31,13 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
           centerTitle: false,
-          title: const Text(
-            'Hi, Minh',
-            style: TextStyle(
-                fontWeight: FontWeight.w400, fontSize: 18, color: Colors.black),
-          ),
+          title: Obx(() => Text(
+                'Hi, ${controller.userLocal.value?.name.split("@")[0]}',
+                style: const TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18,
+                    color: Colors.black),
+              )),
           actions: [
             SizedBox(
               width: Get.width / 2 - 20,
@@ -43,17 +45,17 @@ class HomeView extends GetView<HomeController> {
                 children: [
                   SvgPicture.asset(Assets.icons.icLocation),
                   const Gap(15),
-                  const Expanded(
-                    child: Text(
-                      'Cau Giay, Ha Noi',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 18,
-                          color: Color(0xFF848484)),
-                    ),
-                  ),
+                  Obx(() => Expanded(
+                        child: Text(
+                          controller.positionString.value,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 18,
+                              color: Color(0xFF848484)),
+                        ),
+                      )),
                   const Gap(16)
                 ],
               ),
@@ -213,7 +215,8 @@ class HomeView extends GetView<HomeController> {
                                           color: AppColors.primary,
                                           shape: BoxShape.circle,
                                           border: Border.all(
-                                              color: AppColors.primary, width: 2),
+                                              color: AppColors.primary,
+                                              width: 2),
                                           image: const DecorationImage(
                                               fit: BoxFit.cover,
                                               image: NetworkImage(
