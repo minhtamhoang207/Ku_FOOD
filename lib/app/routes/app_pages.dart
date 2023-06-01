@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/create_order/bindings/create_order_binding.dart';
+import '../modules/create_order/views/create_order_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/discount/bindings/discount_binding.dart';
@@ -12,6 +14,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/navigator/bindings/navigator_binding.dart';
 import '../modules/navigator/views/navigator_view.dart';
+import '../modules/order_success/bindings/order_success_binding.dart';
+import '../modules/order_success/views/order_success_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -64,6 +68,16 @@ class AppPages {
       name: _Paths.NAVIGATOR,
       page: () => NavigatorView(),
       binding: NavigatorBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_ORDER,
+      page: () => const CreateOrderView(),
+      binding: CreateOrderBinding(),
+    ),
+    GetPage(
+      name: _Paths.ORDER_SUCCESS,
+      page: () => const OrderSuccessView(),
+      binding: OrderSuccessBinding(),
     ),
   ];
 }

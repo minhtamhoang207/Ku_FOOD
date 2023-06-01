@@ -15,6 +15,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ic_all.svg
   String get icAll => 'assets/icons/ic_all.svg';
 
+  /// File path: assets/icons/ic_apple_pay.svg
+  String get icApplePay => 'assets/icons/ic_apple_pay.svg';
+
   /// File path: assets/icons/ic_burger.svg
   String get icBurger => 'assets/icons/ic_burger.svg';
 
@@ -78,6 +81,7 @@ class $AssetsIconsGen {
   /// List of all assets
   List<dynamic> get values => [
         icAll,
+        icApplePay,
         icBurger,
         icCalendar,
         icCarrot,
@@ -112,8 +116,14 @@ class $AssetsImagesGen {
   AssetGenImage get imgSplash =>
       const AssetGenImage('assets/images/img_splash.png');
 
+  /// File path: assets/images/logo.svg
+  String get logo => 'assets/images/logo.svg';
+
+  /// File path: assets/images/name_logo.svg
+  String get nameLogo => 'assets/images/name_logo.svg';
+
   /// List of all assets
-  List<AssetGenImage> get values => [imgHome, imgSplash];
+  List<dynamic> get values => [imgHome, imgSplash, logo, nameLogo];
 }
 
 class Assets {

@@ -12,6 +12,8 @@ abstract class Routes {
   static const FOOD_DETAIL = _Paths.FOOD_DETAIL;
   static const NAVIGATOR = _Paths.NAVIGATOR;
   static const NAVIGATOR2 = _Paths.NAVIGATOR2;
+  static const CREATE_ORDER = _Paths.CREATE_ORDER;
+  static const ORDER_SUCCESS = _Paths.ORDER_SUCCESS;
 }
 
 abstract class _Paths {
@@ -25,4 +27,6 @@ abstract class _Paths {
   static const FOOD_DETAIL = '/food-detail';
   static const NAVIGATOR = '/navigator';
   static const NAVIGATOR2 = '/navigator2';
+  static const CREATE_ORDER = '/create-order';
+  static const ORDER_SUCCESS = '/order-success';
 }

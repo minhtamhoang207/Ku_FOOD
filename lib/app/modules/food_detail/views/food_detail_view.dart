@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
 import 'package:kufood/app/config/colors.dart';
+import 'package:kufood/app/routes/app_pages.dart';
 
 import '../../../config/assets.gen.dart';
 import '../controllers/food_detail_controller.dart';
@@ -33,10 +34,10 @@ class FoodDetailView extends GetView<FoodDetailController> {
                             0, 0.5), // changes position of shadow
                       ),
                     ],
-                    image: const DecorationImage(
+                    image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                            'https://img.freepik.com/free-photo/fast-food-junk-food-concept_1339-1420.jpg?w=2000'
+                          controller.product.image
                         )
                     )
                 ),
@@ -84,10 +85,10 @@ class FoodDetailView extends GetView<FoodDetailController> {
           Row(
             children: [
               const Gap(16),
-              const Expanded(
+              Expanded(
                 child: Text(
-                  'Fruit Salad Recipe',
-                  style: TextStyle(
+                  controller.product.name,
+                  style: const TextStyle(
                     color: Colors.black,
                     fontSize: 24,
                     fontWeight: FontWeight.w500
@@ -161,11 +162,11 @@ class FoodDetailView extends GetView<FoodDetailController> {
             ),
           ),
 
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              'The BEST Fruit Salad with a sweet and bright honey lime dressing! It’s an incredibly refreshing, must have side dish that’s made with beautiful blend of delicious fruits and a simple dressing to compliment it. This is always sure to be a crowd favorite!',
-              style: TextStyle(
+              controller.product.detail,
+              style: const TextStyle(
                   color: Color(0xFF4F4F4F),
                   fontWeight: FontWeight.w400,
                   fontSize: 15
@@ -184,21 +185,23 @@ class FoodDetailView extends GetView<FoodDetailController> {
           children: [
             Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: SizedBox(
                     height: 40,
                     child: FittedBox(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        '\$ 24',
-                        maxLines: 1,
-                        textAlign: TextAlign.start,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 30,
-                          color: Color(0xFFFF6B6B)
-                        ),
-                      ),
+                      child: Obx(() =>
+                          Text(
+                            '\$ ${controller.product.price *
+                                controller.count.value}',
+                            maxLines: 1,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 30,
+                                color: Color(0xFFFF6B6B)
+                            ),
+                          ))
                     ),
                   ),
                 ),
@@ -253,19 +256,29 @@ class FoodDetailView extends GetView<FoodDetailController> {
               ],
             ),
             const Gap(24),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-              decoration: BoxDecoration(
-                color: AppColors.primary,
-                borderRadius: BorderRadius.circular(25.5)
-              ),
-              child: Center(
-                child: Text(
-                  'Order',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16
+            GestureDetector(
+              onTap: () {
+                Get.toNamed(
+                    Routes.CREATE_ORDER,
+                    arguments: {
+                      'product': controller.product,
+                      'quantity': controller.count.value
+                    });
+              },
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                decoration: BoxDecoration(
+                  color: AppColors.primary,
+                  borderRadius: BorderRadius.circular(25.5)
+                ),
+                child: const Center(
+                  child: Text(
+                    'Order',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16
+                    ),
                   ),
                 ),
               ),
