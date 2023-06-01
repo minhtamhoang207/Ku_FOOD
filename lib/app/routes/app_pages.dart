@@ -12,12 +12,16 @@ import '../modules/food_detail/bindings/food_detail_binding.dart';
 import '../modules/food_detail/views/food_detail_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/list_order/bindings/list_order_binding.dart';
+import '../modules/list_order/views/list_order_view.dart';
 import '../modules/navigator/bindings/navigator_binding.dart';
 import '../modules/navigator/views/navigator_view.dart';
 import '../modules/order_success/bindings/order_success_binding.dart';
 import '../modules/order_success/views/order_success_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/shipping/bindings/shipping_binding.dart';
+import '../modules/shipping/views/shipping_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
 
@@ -78,6 +82,16 @@ class AppPages {
       name: _Paths.ORDER_SUCCESS,
       page: () => const OrderSuccessView(),
       binding: OrderSuccessBinding(),
+    ),
+    GetPage(
+      name: _Paths.LIST_ORDER,
+      page: () => const ListOrderView(),
+      binding: ListOrderBinding(),
+    ),
+    GetPage(
+      name: _Paths.SHIPPING,
+      page: () => const ShippingView(),
+      binding: ShippingBinding(),
     ),
   ];
 }

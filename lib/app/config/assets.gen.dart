@@ -75,6 +75,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ic_shipping.svg
   String get icShipping => 'assets/icons/ic_shipping.svg';
 
+  /// File path: assets/icons/ic_shipping2.png
+  AssetGenImage get icShipping2 =>
+      const AssetGenImage('assets/icons/ic_shipping2.png');
+
   /// File path: assets/icons/icon.jpeg
   AssetGenImage get icon => const AssetGenImage('assets/icons/icon.jpeg');
 
@@ -101,6 +105,7 @@ class $AssetsIconsGen {
         icProfileDeactive,
         icSearch,
         icShipping,
+        icShipping2,
         icon
       ];
 }

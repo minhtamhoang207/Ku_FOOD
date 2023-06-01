@@ -10,9 +10,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ProfileController extends GetxController {
   //TODO: Implement ProfileController
   final _cacheManager = CacheManager.instance;
+  var userLocal = Rx<UserLocal?>(null);
   final count = 0.obs;
   @override
-  void onInit() {
+  void onInit() async {
+    userLocal.value = await _cacheManager.getUserCached();
     super.onInit();
   }
 

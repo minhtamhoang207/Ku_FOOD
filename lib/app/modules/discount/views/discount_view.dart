@@ -45,6 +45,7 @@ class DiscountView extends GetView<DiscountController> {
                 return Obx(() => InkWell(
                       onTap: () {
                         controller.currentTab.value = index;
+                        controller.onSelect(index);
                       },
                       child: Container(
                         padding: const EdgeInsets.symmetric(
@@ -82,10 +83,8 @@ class DiscountView extends GetView<DiscountController> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            Get.toNamed(
-                                Routes.FOOD_DETAIL,
-                                arguments: controller.listProduct.value[index]
-                            );
+                            Get.toNamed(Routes.FOOD_DETAIL,
+                                arguments: controller.listProduct.value[index]);
                           },
                           child: Container(
                               width: Get.width,

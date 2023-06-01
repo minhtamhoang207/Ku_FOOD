@@ -5,14 +5,13 @@ import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
 import 'package:kufood/app/config/assets.gen.dart';
+import 'package:kufood/app/config/colors.dart';
 import 'package:kufood/app/routes/app_pages.dart';
 
-import '../../../config/colors.dart';
-import '../controllers/favourite_controller.dart';
+import '../controllers/list_order_controller.dart';
 
-class FavouriteView extends GetView<FavouriteController> {
-  const FavouriteView({Key? key}) : super(key: key);
-
+class ListOrderView extends GetView<ListOrderController> {
+  const ListOrderView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,20 +35,20 @@ class FavouriteView extends GetView<FavouriteController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                controller.status.value != null
-                    ? Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.3),
-                            shape: BoxShape.circle),
-                        child:
-                            const Icon(Icons.arrow_back, color: Colors.white),
-                      )
-                    : Container(),
+                GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.3),
+                        shape: BoxShape.circle),
+                    child: const Icon(Icons.arrow_back, color: Colors.white),
+                  ),
+                ),
                 Text(
-                  controller.status.value == null
-                      ? 'Favorite food'
-                      : "List Order",
+                  controller.status.value == null ? 'All Food' : "List Order",
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       color: Colors.black,

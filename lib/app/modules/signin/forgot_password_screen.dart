@@ -2,15 +2,17 @@ import 'dart:async';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kufood/app/auth.dart';
+import 'package:kufood/app/config/colors.dart';
 import 'package:kufood/app/const.dart';
+import 'package:kufood/app/constant.dart';
 import 'package:kufood/app/data/cache_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:kufood/app/modules/signin/widget/default_button.dart';
 import 'package:kufood/app/modules/signin/widget/text_form_field.dart';
 
 class ForgotPasswordGmailScreen extends StatefulWidget {
-  const ForgotPasswordGmailScreen({Key? key}) : super(key: key);
-
+  const ForgotPasswordGmailScreen({Key? key, this.status}) : super(key: key);
+  final String? status;
   @override
   State<ForgotPasswordGmailScreen> createState() =>
       _ForgotPasswordGmailScreenState();
@@ -36,7 +38,7 @@ class _ForgotPasswordGmailScreenState extends State<ForgotPasswordGmailScreen> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Quyên mật khẩu",
+            widget.status == "change_pass" ? "Đổi mật khẩu" : "Quyên mật khẩu",
             style: const TextStyle(
               color: Colors.black87,
               fontWeight: FontWeight.bold,
@@ -45,7 +47,8 @@ class _ForgotPasswordGmailScreenState extends State<ForgotPasswordGmailScreen> {
           ),
           elevation: 0,
           backgroundColor: kBgColor,
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading:
+              widget.status == "change_pass" ? true : false,
         ),
         backgroundColor: kBgColor,
         body: Container(
@@ -78,15 +81,18 @@ class _ForgotPasswordGmailScreenState extends State<ForgotPasswordGmailScreen> {
                       ),
                       DefaultButton(
                         size: size,
-                        title: "Gửi đường dẫn lấy lại mật khẩu",
+                        title: widget.status == "change_pass"
+                            ? "Gửi đường dẫn đổi mật khẩu"
+                            : "Gửi đường dẫn lấy lại mật khẩu",
                         press: () async {
                           if (_formKey.currentState!.validate()) {
                             await Auth().sendPasswordResetEmail(
                               email: emailController.text,
                             );
                             Fluttertoast.showToast(
-                                msg:
-                                    "Gửi đường dẫn lấy lại mật khẩu thành công");
+                                msg: widget.status == "change_pass"
+                                    ? "Gửi đường dẫn đổi mật khẩu thành công"
+                                    : "Gửi đường dẫn lấy lại mật khẩu thành công");
                             Timer(Duration(seconds: 1), () {
                               Navigator.pop(context);
                             });
@@ -96,25 +102,27 @@ class _ForgotPasswordGmailScreenState extends State<ForgotPasswordGmailScreen> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Row(
-                        children: [
-                          const Text('Đã có tài khoản? ',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.grey)),
-                          InkWell(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(' Đăng nhập ngay',
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.orange[900],
-                                    fontWeight: FontWeight.w600)),
-                          ),
-                        ],
-                      ),
+                      widget.status == "change_pass"
+                          ? Container()
+                          : Row(
+                              children: [
+                                const Text('Đã có tài khoản? ',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.grey)),
+                                InkWell(
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(' Đăng nhập ngay',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: AppColors.primary,
+                                          fontWeight: FontWeight.w600)),
+                                ),
+                              ],
+                            ),
                       const SizedBox(
                         height: 24,
                       ),
@@ -124,17 +132,19 @@ class _ForgotPasswordGmailScreenState extends State<ForgotPasswordGmailScreen> {
               ],
             )));
   }
-}
 
-Widget renderHeader() {
-  return Container(
-    height: 100,
-    alignment: Alignment.center,
-    child: const Text(
-      "Gửi đường dẫn tới gmail để lấy lại mật khẩu",
-      textAlign: TextAlign.center,
-      style: TextStyle(
-          fontSize: 28, color: Colors.black, fontWeight: FontWeight.w700),
-    ),
-  );
+  Widget renderHeader() {
+    return Container(
+      height: 100,
+      alignment: Alignment.center,
+      child: Text(
+        widget.status == "change_pass"
+            ? "Gửi đường dẫn tới gmail để đổi mật khẩu"
+            : "Gửi đường dẫn tới gmail để lấy lại mật khẩu",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+            fontSize: 28, color: Colors.black, fontWeight: FontWeight.w700),
+      ),
+    );
+  }
 }
