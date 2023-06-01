@@ -21,27 +21,6 @@ class FoodDetailView extends GetView<FoodDetailController> {
         children: [
           Stack(
             children: [
-<<<<<<< HEAD
-              Container(
-                height: Get.height * 0.4,
-                decoration: BoxDecoration(
-                    color: AppColors.primary,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 2,
-                        blurRadius: 2,
-                        offset: const Offset(
-                            0, 0.5), // changes position of shadow
-                      ),
-                    ],
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          controller.product.image
-                        )
-                    )
-=======
               Obx(
                 () => Container(
                   height: Get.height * 0.4,
@@ -60,7 +39,6 @@ class FoodDetailView extends GetView<FoodDetailController> {
                           fit: BoxFit.cover,
                           image: NetworkImage(controller.product.value?.image ??
                               'https://img.freepik.com/free-photo/fast-food-junk-food-concept_1339-1420.jpg?w=2000'))),
->>>>>>> c615dc9 (update)
                 ),
               ),
               Positioned(
@@ -102,14 +80,6 @@ class FoodDetailView extends GetView<FoodDetailController> {
             children: [
               const Gap(16),
               Expanded(
-<<<<<<< HEAD
-                child: Text(
-                  controller.product.name,
-                  style: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500
-=======
                 child: Obx(
                   () => Text(
                     controller.product.value?.name ?? "",
@@ -117,7 +87,6 @@ class FoodDetailView extends GetView<FoodDetailController> {
                         color: Colors.black,
                         fontSize: 24,
                         fontWeight: FontWeight.w500),
->>>>>>> c615dc9 (update)
                   ),
                 ),
               ),
@@ -142,7 +111,7 @@ class FoodDetailView extends GetView<FoodDetailController> {
               const Gap(16)
             ],
           ),
-          const Gap(12),
+          Gap(12),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 13),
               child: Row(
@@ -184,17 +153,6 @@ class FoodDetailView extends GetView<FoodDetailController> {
                   fontSize: 18),
             ),
           ),
-<<<<<<< HEAD
-
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              controller.product.detail,
-              style: const TextStyle(
-                  color: Color(0xFF4F4F4F),
-                  fontWeight: FontWeight.w400,
-                  fontSize: 15
-=======
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Obx(
@@ -205,7 +163,6 @@ class FoodDetailView extends GetView<FoodDetailController> {
                     color: Color(0xFF4F4F4F),
                     fontWeight: FontWeight.w400,
                     fontSize: 15),
->>>>>>> c615dc9 (update)
               ),
             ),
           )
@@ -222,34 +179,16 @@ class FoodDetailView extends GetView<FoodDetailController> {
                   child: SizedBox(
                     height: 40,
                     child: FittedBox(
-                      alignment: Alignment.centerLeft,
-<<<<<<< HEAD
-                      child: Obx(() =>
-                          Text(
-                            '\$ ${controller.product.price *
-                                controller.count.value}',
-                            maxLines: 1,
-                            textAlign: TextAlign.start,
-                            style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 30,
-                                color: Color(0xFFFF6B6B)
-                            ),
-                          ))
-=======
-                      child: Obx(
-                        () => Text(
-                          '\$ ${controller.product.value?.price}',
-                          maxLines: 1,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 30,
-                              color: Color(0xFFFF6B6B)),
-                        ),
-                      ),
->>>>>>> c615dc9 (update)
-                    ),
+                        alignment: Alignment.centerLeft,
+                        child: Obx(() => Text(
+                              '\$ ${controller.product.value?.price ?? 0 * controller.count.value}',
+                              maxLines: 1,
+                              textAlign: TextAlign.start,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 30,
+                                  color: Color(0xFFFF6B6B)),
+                            ))),
                   ),
                 ),
                 const Gap(20),
@@ -298,45 +237,27 @@ class FoodDetailView extends GetView<FoodDetailController> {
               ],
             ),
             const Gap(24),
-<<<<<<< HEAD
             GestureDetector(
               onTap: () {
-                Get.toNamed(
-                    Routes.CREATE_ORDER,
-                    arguments: {
-                      'product': controller.product,
-                      'quantity': controller.count.value
-                    });
+                Get.toNamed(Routes.CREATE_ORDER, arguments: {
+                  'product': controller.product.value,
+                  'quantity': controller.count.value
+                });
               },
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
                 decoration: BoxDecoration(
-                  color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(25.5)
-                ),
+                    color: AppColors.primary,
+                    borderRadius: BorderRadius.circular(25.5)),
                 child: const Center(
                   child: Text(
                     'Order',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16
-                    ),
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16),
                   ),
-=======
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-              decoration: BoxDecoration(
-                  color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(25.5)),
-              child: Center(
-                child: Text(
-                  'Order',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16),
->>>>>>> c615dc9 (update)
                 ),
               ),
             )
