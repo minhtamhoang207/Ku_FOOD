@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:kufood/app/data/cache_manager.dart';
 import 'package:kufood/app/data/model/product/product.dart';
 
-class FavouriteController extends GetxController {
+class ListOrderController extends GetxController {
   final status = Rx<String?>(null);
   final count = 0.obs;
   final cacheManager = CacheManager.instance;

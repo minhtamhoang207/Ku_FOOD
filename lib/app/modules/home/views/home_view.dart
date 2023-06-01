@@ -112,12 +112,17 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
                 const Gap(20),
-                Text(
-                  'See all',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18,
-                      color: AppColors.primary),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.LIST_ORDER);
+                  },
+                  child: Text(
+                    'See all',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        color: AppColors.primary),
+                  ),
                 ),
               ],
             ),
@@ -135,12 +140,17 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
                 const Gap(20),
-                Text(
-                  'See all',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18,
-                      color: AppColors.primary),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.LIST_ORDER);
+                  },
+                  child: Text(
+                    'See all',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        color: AppColors.primary),
+                  ),
                 ),
               ],
             ),
@@ -161,12 +171,17 @@ class HomeView extends GetView<HomeController> {
                   ),
                 ),
                 const Gap(20),
-                Text(
-                  'See all',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 18,
-                      color: AppColors.primary),
+                GestureDetector(
+                  onTap: () {
+                    Get.toNamed(Routes.LIST_ORDER);
+                  },
+                  child: Text(
+                    'See all',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 18,
+                        color: AppColors.primary),
+                  ),
                 ),
               ],
             ),

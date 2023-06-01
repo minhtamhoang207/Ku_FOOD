@@ -1,15 +1,18 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:kufood/app/data/model/board_local/board_model.dart';
+import 'package:kufood/app/data/model/product/product_local.dart';
 import 'package:kufood/app/data/model/user_local/user_model_local.dart';
 
 class CacheManager {
   static CacheManager? _instance;
   static const String _cacheBoxName = 'HiveCache';
   static const int broadmodel = 1;
+  static const int productLocal = 3;
   static const int userLocal = 2;
   static CacheManager get instance => _instance ??= CacheManager._();
   static const String _listBoard = 'listBoardLocal';
   static const String _userLocal = 'userLocal';
+  static const String _productLocal = '_productLocal';
   CacheManager._();
 
   Box get _cacheBox => Hive.box(_cacheBoxName);
@@ -22,7 +25,7 @@ class CacheManager {
       await Hive.initFlutter();
       Hive.registerAdapter(BoardModelLocalAdapter());
       Hive.registerAdapter(UserLocalAdapter());
-
+      Hive.registerAdapter(ProductLocalAdapter());
       await openBox();
       print('Open box successfully');
     } catch (ex) {
@@ -92,6 +95,23 @@ class CacheManager {
   Future<UserLocal?> getUserCached() async {
     UserLocal? user = _cacheBox.get(_userLocal) as UserLocal?;
     return user;
+  }
+
+  Future<void> addAllProduct(List<ProductLocal> models) async {
+    await _cacheBox.put(_productLocal, models);
+  }
+
+  Future<void> addProduct(ProductLocal model) async {
+    List<ProductLocal> models = getAllProduct();
+    models.add(model);
+    await _cacheBox.put(_productLocal, models);
+  }
+
+  List<ProductLocal> getAllProduct() {
+    final result = List.castFrom<dynamic, ProductLocal>(
+      (_cacheBox.get(_productLocal) ?? []) as List<dynamic>,
+    ).toList();
+    return result;
   }
 
   Future<void> clear() async {

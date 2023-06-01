@@ -55,55 +55,55 @@
     "name": "Fried chicken Burger ( Gà chiên xù - bắp cải trộn vs bbq sốt)",
     "detail": "Beef 150 gr, bacon, Cheddar cheese, pickle",
    "price": 12,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://product.hstatic.net/1000389344/product/bbq_chicken_burger_88d839921ac34aa0902c44edf13f5ce0_master.jpg"
     }
     ,
     {"role":"burger",
     "name": "Beef n Mushroom Burger ( Bò nướng - phô mai vs nấm xào )",
     "detail": "Beef patty 150 gr, cheddar cheese,grill mushroom",
    "price": 55,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://www.allrecipes.com/thmb/5JVfA7MxfTUPfRerQMdF-nGKsLY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/25473-the-perfect-basic-burger-DDMFS-4x3-56eaba3833fd4a26a82755bcd0be0c54.jpg"
     }
     ,
     {"role":"burger",
     "name": "Factories burger ( Bò nướng - phô mai,thịt xông khói, trứng rán ,hành chiên)",
     "detail": "Beef, Cheddar cheese, onion ring, bacon, fried egg",
    "price": 34,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://cdn.tgdd.vn/Files/2021/12/25/1406834/cach-lam-burger-trung-ap-chao-ngon-bo-re-de-thuc-hien-tai-nha-202112252318017559.jpg"
     }
     ,
     {"role":"burger",
     "name": "Pineapple beef burger ( burger bò dứa)",
     "detail": "Beef150gr , Cheddar cheese, bacon, grilled pineapple, fried egg, pickle",
    "price": 8,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/09/beef-burger.jpg"
     },
     {"role":"drink",
     "name": "Trà sữa Matcha",
     "detail": "Trà sữa thơm ngon với hương vị Matcha đậm đà",
     "price": 2,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://abcsport.com.vn/image/catalog/2023/T01/mot-ly-tra-sua-bao-nhieu-calo-1.jpg"
     }
     ,
     {"role":"drink",
     "name": "Trà sữa Socola",
     "detail": "Trà sữa thơm ngọt với hương vị Socola đáng yêu",
     "price": 4,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://inhat.vn/wp-content/uploads/2022/05/tr%C3%A0-s%E1%BB%AFa-t%C3%A2y-ninh1-min.png"
     }
     ,
     {"role":"drink",
     "name": "Trà sữa Truyền thống",
     "detail": "Trà sữa truyền thống với hương vị truyền thống đặc trưng",
     "price": 9,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://images2.thanhnien.vn/Uploaded/phuchau/2022_10_15/p1-7475.jpeg"
     }
     ,
     {"role":"drink",
     "name": "Trà sữa Truyền thống hương nhài",
     "detail": "Trà sữa truyền thống với hương vị truyền thống đặc trưng",
     "price": 9,
-      "image":"https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/800px-Pizza-3007395.jpg"
+      "image":"https://cdn.shortpixel.ai/spai/q_lossless+ret_img+to_auto/https://www.thatlangon.com/wp-content/uploads/2021/08/quan-tra-sua-hanoi/image7-602w401h-medium.jpg"
     }
     
   ]

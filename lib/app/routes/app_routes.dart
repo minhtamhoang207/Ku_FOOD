@@ -14,6 +14,8 @@ abstract class Routes {
   static const NAVIGATOR2 = _Paths.NAVIGATOR2;
   static const CREATE_ORDER = _Paths.CREATE_ORDER;
   static const ORDER_SUCCESS = _Paths.ORDER_SUCCESS;
+  static const LIST_ORDER = _Paths.LIST_ORDER;
+  static const SHIPPING = _Paths.SHIPPING;
 }
 
 abstract class _Paths {
@@ -29,4 +31,6 @@ abstract class _Paths {
   static const NAVIGATOR2 = '/navigator2';
   static const CREATE_ORDER = '/create-order';
   static const ORDER_SUCCESS = '/order-success';
+  static const LIST_ORDER = '/list-order';
+  static const SHIPPING = '/shipping';
 }
