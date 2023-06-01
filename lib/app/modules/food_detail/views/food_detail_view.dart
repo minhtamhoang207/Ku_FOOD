@@ -142,7 +142,7 @@ class FoodDetailView extends GetView<FoodDetailController> {
               const Gap(16)
             ],
           ),
-          Gap(12),
+          const Gap(12),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 13),
               child: Row(
