@@ -48,7 +48,9 @@ class ListOrderView extends GetView<ListOrderController> {
                   ),
                 ),
                 Text(
-                  controller.status.value == null ? 'All Food' : "List Order",
+                  controller.status.value == null
+                      ? 'All Food'
+                      : (controller.status.value!), //,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       color: Colors.black,

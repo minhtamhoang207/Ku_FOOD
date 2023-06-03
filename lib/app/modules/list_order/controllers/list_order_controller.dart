@@ -15,9 +15,22 @@ class ListOrderController extends GetxController {
     print("giang");
     if (Get.arguments != null) {
       status.value = Get.arguments as String;
+      if (status.value != null) {
+        if (status.value!.contains("order")) {
+          status.value = "List Order";
+        } else if (status.value!.contains("salad")) {
+          status.value = "Salad";
+        } else if (status.value!.contains("pizza")) {
+          status.value = "Pizza";
+        } else if (status.value!.contains("burger")) {
+          status.value = "Burger";
+        } else if (status.value!.contains("drink")) {
+          status.value = "Drink";
+        }
+      }
     }
     print(status.value);
-    if (status.value != null && status.value!.contains("order_list")) {
+    if (status.value != null && status.value!.contains("List Order")) {
       listProduct.value = (cacheManager.getAllProduct() ?? [])
           .map((e) => ProductModel.fromLocal(e))
           .toList();
@@ -32,6 +45,12 @@ class ListOrderController extends GetxController {
       List<ProductModel> listProductResponse = (data['products'] as List)
           .map((item) => ProductModel.fromJson(item))
           .toList();
+      if (Get.arguments as String != null && Get.arguments as String != "") {
+        listProductResponse = listProductResponse
+            .where((element) => element.role.contains(Get.arguments as String))
+            .map((e) => e)
+            .toList();
+      }
       listProduct.value = listProductResponse;
     }
 

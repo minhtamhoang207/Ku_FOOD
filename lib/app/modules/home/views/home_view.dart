@@ -114,7 +114,9 @@ class HomeView extends GetView<HomeController> {
                 const Gap(20),
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(Routes.LIST_ORDER);
+                    Get.toNamed(
+                      Routes.LIST_ORDER,
+                    );
                   },
                   child: Text(
                     'See all',
