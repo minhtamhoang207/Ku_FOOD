@@ -45,7 +45,9 @@ class ListOrderController extends GetxController {
       List<ProductModel> listProductResponse = (data['products'] as List)
           .map((item) => ProductModel.fromJson(item))
           .toList();
-      if (Get.arguments as String != null && Get.arguments as String != "") {
+      if (Get.arguments != null &&
+          Get.arguments as String != null &&
+          Get.arguments as String != "") {
         listProductResponse = listProductResponse
             .where((element) => element.role.contains(Get.arguments as String))
             .map((e) => e)
