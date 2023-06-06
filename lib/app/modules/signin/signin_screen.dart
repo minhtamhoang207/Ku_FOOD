@@ -133,12 +133,13 @@ class _SigninScreenState extends State<SigninScreen> {
                                     name: emailController.text,
                                     phone: passwordController.text));
                                 print(error);
-                                setState(() {
-                                  if (error != null && error!.isNotEmpty) {
+
+                                if (error != null && error!.isNotEmpty) {
+                                  setState(() {
                                     List<String> a = error!.split("]");
                                     error = a[1];
-                                  }
-                                });
+                                  });
+                                }
                               }
                             } else {
                               if (_formKey.currentState!.validate()) {
