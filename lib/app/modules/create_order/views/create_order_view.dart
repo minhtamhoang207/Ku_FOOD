@@ -170,16 +170,21 @@ class PaymentBottomSheet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Gap(15),
-          Padding(
-            padding: const EdgeInsets.only(top: 10, left: 20),
-            child: SvgPicture.asset(
-              Platform.isIOS
-                ? Assets.icons.icApplePay
-                : Assets.icons.icGooglePay,
-              fit: BoxFit.cover,
-              height: 50,
-              width: 30,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 10, left: 20),
+                child: SvgPicture.asset(
+                  Platform.isIOS
+                      ? Assets.icons.icApplePay
+                      : Assets.icons.icGooglePay,
+                  fit: BoxFit.cover,
+                  height: 50,
+                  width: 30,
+                ),
+              ),
+            ],
           ),
           GestureDetector(
             onTap: () {
@@ -199,8 +204,8 @@ class PaymentBottomSheet extends StatelessWidget {
                 children: [
                   Text(
                     Platform.isIOS
-                      ? 'Pay with Apple Pay'
-                      : 'Pay with Google Pay',
+                        ? 'Pay with Apple Pay'
+                        : 'Pay with Google Pay',
                     style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
