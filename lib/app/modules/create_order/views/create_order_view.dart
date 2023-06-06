@@ -124,21 +124,17 @@ class CreateOrderView extends GetView<CreateOrderController> {
           children: [
             GestureDetector(
               onTap: () {
-                if (Platform.isIOS) {
-                  showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return PaymentBottomSheet(
-                        onTap: () {
-                          final cacheManager = CacheManager.instance;
-                          cacheManager.addProduct(controller.product.toLocal());
-                        },
-                      );
-                    },
-                  );
-                } else {
-                  Get.offAndToNamed(Routes.ORDER_SUCCESS);
-                }
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return PaymentBottomSheet(
+                      onTap: () {
+                        final cacheManager = CacheManager.instance;
+                        cacheManager.addProduct(controller.product.toLocal());
+                      },
+                    );
+                  },
+                );
               },
               child: Container(
                 padding: const EdgeInsets.all(16),
@@ -177,8 +173,12 @@ class PaymentBottomSheet extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 10, left: 20),
             child: SvgPicture.asset(
-              Assets.icons.icApplePay,
-              height: 25,
+              Platform.isIOS
+                ? Assets.icons.icApplePay
+                : Assets.icons.icGooglePay,
+              fit: BoxFit.cover,
+              height: 50,
+              width: 30,
             ),
           ),
           GestureDetector(
@@ -196,10 +196,12 @@ class PaymentBottomSheet extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
-                    'Pay with Apple Pay',
-                    style: TextStyle(
+                    Platform.isIOS
+                      ? 'Pay with Apple Pay'
+                      : 'Pay with Google Pay',
+                    style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),

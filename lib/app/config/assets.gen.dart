@@ -39,6 +39,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/ic_drink.svg
   String get icDrink => 'assets/icons/ic_drink.svg';
 
+  /// File path: assets/icons/ic_google_pay.svg
+  String get icGooglePay => 'assets/icons/ic_google_pay.svg';
+
   /// File path: assets/icons/ic_heart.svg
   String get icHeart => 'assets/icons/ic_heart.svg';
 
@@ -93,6 +96,7 @@ class $AssetsIconsGen {
         icDiscount,
         icDiscountDeactive,
         icDrink,
+        icGooglePay,
         icHeart,
         icHeartDeactive,
         icHome,

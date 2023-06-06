@@ -44,170 +44,172 @@ class _SigninScreenState extends State<SigninScreen> {
             margin: const EdgeInsets.only(top: 150),
             decoration: const BoxDecoration(color: Colors.white),
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 12,
-                ),
-                renderHeader(),
-                Form(
-                  key: _formKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      TextFormFieldInput(
-                        hinText: 'email',
-                        isEmail: true,
-                        error: error,
-                        controller: emailController,
-                      ),
-                      const SizedBox(
-                        height: 12,
-                      ),
-                      TextFormFieldInput(
-                        isPass: true,
-                        hinText: 'mật khẩu',
-                        error: error,
-                        controller: passwordController,
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      register == false
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                GestureDetector(
-                                  onTap: (() {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              ForgotPasswordGmailScreen()),
-                                    );
-                                  }),
-                                  child: Text(' Quyên mật khẩu?',
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          color: Color(0xff8BC53F),
-                                          fontWeight: FontWeight.w600)),
-                                ),
-                              ],
-                            )
-                          : Container(),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      DefaultButton(
-                        size: size,
-                        title: register == false ? "Đăng nhập" : "Đăng ký",
-                        press: () async {
-                          final SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
-                          List<String> account = await prefs.getStringList(
-                                'accounts',
-                              ) ??
-                              [];
-                          account = account.where((element) {
-                                return element
-                                    .contains(emailController.text ?? "");
-                              }).toList() ??
-                              [];
-                          print("giang log" + account.length.toString());
-                          if (account.length > 0) {
-                            Fluttertoast.showToast(
-                                msg: "Tài khoản của bạn đã bị xoá");
-                            return;
-                          }
-                          if (register == false) {
-                            if (_formKey.currentState!.validate()) {
-                              error = await Auth().signInWithEmailAndPassword(
-                                email: emailController.text,
-                                password: passwordController.text,
-                              );
-                              _cacheManager.addUserToCached(UserLocal(
-                                  name: emailController.text,
-                                  phone: passwordController.text));
-                              print(error);
-                              setState(() {
-                                if (error != null && error!.isNotEmpty) {
-                                  List<String> a = error!.split("]");
-                                  error = a[1];
-                                }
-                              });
-                            }
-                          } else {
-                            if (_formKey.currentState!.validate()) {
-                              error =
-                                  await Auth().createUserWithEmailAndPassword(
-                                email: emailController.text,
-                                password: passwordController.text,
-                              );
-                              _cacheManager.addUserToCached(UserLocal(
-                                  name: emailController.text,
-                                  phone: passwordController.text));
-                              register = false;
-                            }
-                          }
-                        },
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      register == false
-                          ? Row(
-                              children: [
-                                const Text('Chưa có tài khoản? ',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.grey)),
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      register = true;
-                                    });
-                                  },
-                                  child: Text(' Đăng ký ngay',
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          color: Color(0xff8BC53F),
-                                          fontWeight: FontWeight.w600)),
-                                ),
-                              ],
-                            )
-                          : Row(
-                              children: [
-                                const Text('Đã có tài khoản? ',
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.grey)),
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      register = false;
-                                    });
-                                  },
-                                  child: Text(' Đăng nhập ngay',
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.orange[900],
-                                          fontWeight: FontWeight.w600)),
-                                ),
-                              ],
-                            ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                    ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 12,
                   ),
-                ),
-                // renderBody(context, signInWithEmailAndPassword)
-              ],
+                  renderHeader(),
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        TextFormFieldInput(
+                          hinText: 'email',
+                          isEmail: true,
+                          error: error,
+                          controller: emailController,
+                        ),
+                        const SizedBox(
+                          height: 12,
+                        ),
+                        TextFormFieldInput(
+                          isPass: true,
+                          hinText: 'mật khẩu',
+                          error: error,
+                          controller: passwordController,
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        register == false
+                            ? Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  GestureDetector(
+                                    onTap: (() {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ForgotPasswordGmailScreen()),
+                                      );
+                                    }),
+                                    child: Text(' Quyên mật khẩu?',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xff8BC53F),
+                                            fontWeight: FontWeight.w600)),
+                                  ),
+                                ],
+                              )
+                            : Container(),
+                        const SizedBox(
+                          height: 24,
+                        ),
+                        DefaultButton(
+                          size: size,
+                          title: register == false ? "Đăng nhập" : "Đăng ký",
+                          press: () async {
+                            final SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            List<String> account = await prefs.getStringList(
+                                  'accounts',
+                                ) ??
+                                [];
+                            account = account.where((element) {
+                                  return element
+                                      .contains(emailController.text ?? "");
+                                }).toList() ??
+                                [];
+                            print("giang log" + account.length.toString());
+                            if (account.length > 0) {
+                              Fluttertoast.showToast(
+                                  msg: "Tài khoản của bạn đã bị xoá");
+                              return;
+                            }
+                            if (register == false) {
+                              if (_formKey.currentState!.validate()) {
+                                error = await Auth().signInWithEmailAndPassword(
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                );
+                                _cacheManager.addUserToCached(UserLocal(
+                                    name: emailController.text,
+                                    phone: passwordController.text));
+                                print(error);
+                                setState(() {
+                                  if (error != null && error!.isNotEmpty) {
+                                    List<String> a = error!.split("]");
+                                    error = a[1];
+                                  }
+                                });
+                              }
+                            } else {
+                              if (_formKey.currentState!.validate()) {
+                                error =
+                                    await Auth().createUserWithEmailAndPassword(
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                );
+                                _cacheManager.addUserToCached(UserLocal(
+                                    name: emailController.text,
+                                    phone: passwordController.text));
+                                register = false;
+                              }
+                            }
+                          },
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        register == false
+                            ? Row(
+                                children: [
+                                  const Text('Chưa có tài khoản? ',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.grey)),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        register = true;
+                                      });
+                                    },
+                                    child: Text(' Đăng ký ngay',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xff8BC53F),
+                                            fontWeight: FontWeight.w600)),
+                                  ),
+                                ],
+                              )
+                            : Row(
+                                children: [
+                                  const Text('Đã có tài khoản? ',
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.grey)),
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        register = false;
+                                      });
+                                    },
+                                    child: Text(' Đăng nhập ngay',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.orange[900],
+                                            fontWeight: FontWeight.w600)),
+                                  ),
+                                ],
+                              ),
+                        const SizedBox(
+                          height: 24,
+                        ),
+                      ],
+                    ),
+                  ),
+                  // renderBody(context, signInWithEmailAndPassword)
+                ],
+              ),
             )));
   }
 }
