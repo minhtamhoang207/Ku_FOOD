@@ -1,5 +1,5 @@
 name: kufood
-version: 1.0.0+1
+version: 1.0.2+3
 publish_to: none
 description: A new Flutter project.
 environment:
@@ -50,7 +50,7 @@ flutter_icons:
   android: true
   # image_path_android: "assets/1_png.png"
   ios: true
-  image_path: "assets/icons/icon.jpeg"
+  image_path: "assets/logo.jpeg"
 
 flutter:
   uses-material-design: true

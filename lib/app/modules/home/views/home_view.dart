@@ -65,15 +65,15 @@ class HomeView extends GetView<HomeController> {
         body: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            Container(
-              height: 152,
-              width: Get.width,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(Assets.images.imgHome.path))),
-            ),
+            // Container(
+            //   height: 152,
+            //   width: Get.width,
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(8),
+            //       image: DecorationImage(
+            //           fit: BoxFit.cover,
+            //           image: AssetImage(Assets.images.imgHome.path))),
+            // ),
             const Gap(18),
             Row(
               children: [
@@ -114,7 +114,9 @@ class HomeView extends GetView<HomeController> {
                 const Gap(20),
                 GestureDetector(
                   onTap: () {
-                    Get.toNamed(Routes.LIST_ORDER);
+                    Get.toNamed(
+                      Routes.LIST_ORDER,
+                    );
                   },
                   child: Text(
                     'See all',
