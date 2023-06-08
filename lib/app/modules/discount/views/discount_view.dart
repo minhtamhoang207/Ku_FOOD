@@ -137,7 +137,7 @@ class DiscountView extends GetView<DiscountController> {
                                           maxLines: 2,
                                           overflow: TextOverflow.ellipsis,
                                           textAlign: TextAlign.left,
-                                          style: TextStyle(color: Colors.black),
+                                          style: const TextStyle(color: Colors.black),
                                         ),
                                         Gap(4),
                                         const Text(
@@ -155,7 +155,7 @@ class DiscountView extends GetView<DiscountController> {
                                           '\$ ${controller.listProduct.value[index].price}',
                                           textAlign: TextAlign.center,
                                           maxLines: 1,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: Color(0xFFFF6B6B),
                                               fontSize: 20,
                                               fontWeight: FontWeight.w500),
