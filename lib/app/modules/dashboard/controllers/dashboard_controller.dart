@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kufood/app/modules/chat_gpt/main.dart';
 
 import '../../discount/views/discount_view.dart';
 import '../../favourite/views/favourite_view.dart';
@@ -16,6 +17,7 @@ class DashboardController extends GetxController {
     const DiscountView(),
     const FavouriteView(),
     const ProfileView(),
+    const ChatGPTPage()
   ];
 
   @override

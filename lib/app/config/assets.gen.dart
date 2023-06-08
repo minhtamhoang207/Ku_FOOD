@@ -12,6 +12,12 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/bot.svg
+  String get bot => 'assets/icons/bot.svg';
+
+  /// File path: assets/icons/bot_select.svg
+  String get botSelect => 'assets/icons/bot_select.svg';
+
   /// File path: assets/icons/ic_all.svg
   String get icAll => 'assets/icons/ic_all.svg';
 
@@ -87,6 +93,8 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
+        bot,
+        botSelect,
         icAll,
         icApplePay,
         icBurger,
@@ -117,6 +125,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/chat_logo.png
+  AssetGenImage get chatLogo =>
+      const AssetGenImage('assets/images/chat_logo.png');
+
   /// File path: assets/images/img_home.png
   AssetGenImage get imgHome =>
       const AssetGenImage('assets/images/img_home.png');
@@ -131,8 +143,16 @@ class $AssetsImagesGen {
   /// File path: assets/images/name_logo.svg
   String get nameLogo => 'assets/images/name_logo.svg';
 
+  /// File path: assets/images/openai_logo.jpg
+  AssetGenImage get openaiLogo =>
+      const AssetGenImage('assets/images/openai_logo.jpg');
+
+  /// File path: assets/images/person.png
+  AssetGenImage get person => const AssetGenImage('assets/images/person.png');
+
   /// List of all assets
-  List<dynamic> get values => [imgHome, imgSplash, logo, nameLogo];
+  List<dynamic> get values =>
+      [chatLogo, imgHome, imgSplash, logo, nameLogo, openaiLogo, person];
 }
 
 class Assets {
@@ -140,10 +160,11 @@ class Assets {
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const AssetGenImage logo = AssetGenImage('assets/logo.jpeg');
   static const String productMasterData = 'assets/product_master_data.json';
 
   /// List of all assets
-  List<String> get values => [productMasterData];
+  List<dynamic> get values => [logo, productMasterData];
 }
 
 class AssetGenImage {

@@ -11,9 +11,7 @@ class DashboardView extends GetView<DashboardController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Obx(() =>
-        controller.pages[controller.currentIndex.value]
-      ),
+      body: Obx(() => controller.pages[controller.currentIndex.value]),
       bottomNavigationBar: const BottomNavBar(),
     );
   }
@@ -27,7 +25,6 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-
   final DashboardController dashboardController = Get.find();
 
   @override
@@ -41,26 +38,35 @@ class _BottomNavBarState extends State<BottomNavBar> {
           topRight: Radius.circular(30),
         ),
       ),
-      child: Obx(() =>
-          Row(
+      child: Obx(() => Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
                 icon: SvgPicture.asset(
-                  dashboardController.currentIndex.value == 0
-                      ? Assets.icons.icHome
-                      : Assets.icons.icHomeDeactive
-                ),
+                    dashboardController.currentIndex.value == 0
+                        ? Assets.icons.icHome
+                        : Assets.icons.icHomeDeactive),
                 onPressed: () {
                   dashboardController.currentIndex.value = 0;
                 },
               ),
               IconButton(
                 icon: SvgPicture.asset(
+                  dashboardController.currentIndex.value == 4
+                      ? Assets.icons.botSelect
+                      : Assets.icons.bot,
+                  width: 32,
+                  color: Colors.white,
+                ),
+                onPressed: () {
+                  dashboardController.currentIndex.value = 4;
+                },
+              ),
+              IconButton(
+                icon: SvgPicture.asset(
                     dashboardController.currentIndex.value == 1
                         ? Assets.icons.icDiscount
-                        : Assets.icons.icDiscountDeactive
-                ),
+                        : Assets.icons.icDiscountDeactive),
                 onPressed: () {
                   dashboardController.currentIndex.value = 1;
                 },
@@ -69,8 +75,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: SvgPicture.asset(
                     dashboardController.currentIndex.value == 2
                         ? Assets.icons.icHeart
-                        : Assets.icons.icHeartDeactive
-                ),
+                        : Assets.icons.icHeartDeactive),
                 onPressed: () {
                   dashboardController.currentIndex.value = 2;
                 },
@@ -79,15 +84,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: SvgPicture.asset(
                     dashboardController.currentIndex.value == 3
                         ? Assets.icons.icProfile
-                        : Assets.icons.icProfileDeactive
-                ),
+                        : Assets.icons.icProfileDeactive),
                 onPressed: () {
                   dashboardController.currentIndex.value = 3;
                 },
               ),
+              
             ],
-          )
-      ),
+          )),
     );
   }
 }
