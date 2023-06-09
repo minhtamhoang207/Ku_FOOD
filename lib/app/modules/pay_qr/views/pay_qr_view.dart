@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:kufood/app/config/assets.gen.dart';
+import 'package:kufood/app/config/colors.dart';
 import 'package:kufood/app/routes/app_pages.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../config/colors.dart';
-import '../controllers/order_success_controller.dart';
+import '../controllers/pay_qr_controller.dart';
 
-class OrderSuccessView extends GetView<OrderSuccessController> {
-  const OrderSuccessView({Key? key}) : super(key: key);
+class PayQrView extends GetView<PayQrController> {
+  const PayQrView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Lottie.network(
-              'https://assets10.lottiefiles.com/packages/lf20_jbrw3hcz.json'),
-          const Text(
-            'Your order has been placed',
-          )
-        ],
+          child: Image.asset(
+        Assets.images.pay.path,
+        fit: BoxFit.cover,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
       )),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           GestureDetector(
             onTap: () {
-              Get.back();
-              Get.offNamedUntil(Routes.DASHBOARD, (route) => false);
+              Get.offAndToNamed(Routes.ORDER_SUCCESS);
             },
             child: Container(
               padding: const EdgeInsets.all(10),
@@ -39,7 +35,7 @@ class OrderSuccessView extends GetView<OrderSuccessController> {
                   borderRadius: BorderRadius.circular(10)),
               child: const Center(
                 child: Text(
-                  'Go back',
+                  'Confirm',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

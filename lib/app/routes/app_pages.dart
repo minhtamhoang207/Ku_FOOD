@@ -18,6 +18,8 @@ import '../modules/navigator/bindings/navigator_binding.dart';
 import '../modules/navigator/views/navigator_view.dart';
 import '../modules/order_success/bindings/order_success_binding.dart';
 import '../modules/order_success/views/order_success_view.dart';
+import '../modules/pay_qr/bindings/pay_qr_binding.dart';
+import '../modules/pay_qr/views/pay_qr_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
 import '../modules/shipping/bindings/shipping_binding.dart';
@@ -92,6 +94,11 @@ class AppPages {
       name: _Paths.SHIPPING,
       page: () => const ShippingView(),
       binding: ShippingBinding(),
+    ),
+    GetPage(
+      name: _Paths.PAY_QR,
+      page: () => const PayQrView(),
+      binding: PayQrBinding(),
     ),
   ];
 }

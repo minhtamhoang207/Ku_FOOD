@@ -147,12 +147,15 @@ class $AssetsImagesGen {
   AssetGenImage get openaiLogo =>
       const AssetGenImage('assets/images/openai_logo.jpg');
 
+  /// File path: assets/images/pay.jpg
+  AssetGenImage get pay => const AssetGenImage('assets/images/pay.jpg');
+
   /// File path: assets/images/person.png
   AssetGenImage get person => const AssetGenImage('assets/images/person.png');
 
   /// List of all assets
   List<dynamic> get values =>
-      [chatLogo, imgHome, imgSplash, logo, nameLogo, openaiLogo, person];
+      [chatLogo, imgHome, imgSplash, logo, nameLogo, openaiLogo, pay, person];
 }
 
 class Assets {

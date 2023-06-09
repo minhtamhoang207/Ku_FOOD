@@ -16,6 +16,7 @@ abstract class Routes {
   static const ORDER_SUCCESS = _Paths.ORDER_SUCCESS;
   static const LIST_ORDER = _Paths.LIST_ORDER;
   static const SHIPPING = _Paths.SHIPPING;
+  static const PAY_QR = _Paths.PAY_QR;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const ORDER_SUCCESS = '/order-success';
   static const LIST_ORDER = '/list-order';
   static const SHIPPING = '/shipping';
+  static const PAY_QR = '/pay-qr';
 }

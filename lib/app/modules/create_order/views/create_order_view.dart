@@ -124,17 +124,18 @@ class CreateOrderView extends GetView<CreateOrderController> {
           children: [
             GestureDetector(
               onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return PaymentBottomSheet(
-                      onTap: () {
-                        final cacheManager = CacheManager.instance;
-                        cacheManager.addProduct(controller.product.toLocal());
-                      },
-                    );
-                  },
-                );
+                Get.offAndToNamed(Routes.PAY_QR);
+                // showModalBottomSheet(
+                //   context: context,
+                //   builder: (BuildContext context) {
+                //     return PaymentBottomSheet(
+                //       onTap: () {
+                //         final cacheManager = CacheManager.instance;
+                //         cacheManager.addProduct(controller.product.toLocal());
+                //       },
+                //     );
+                //   },
+                // );
               },
               child: Container(
                 padding: const EdgeInsets.all(16),
@@ -190,7 +191,7 @@ class PaymentBottomSheet extends StatelessWidget {
             onTap: () {
               Get.back();
               onTap.call();
-              Get.offAndToNamed(Routes.ORDER_SUCCESS);
+              Get.offAndToNamed(Routes.PAY_QR);
             },
             child: Container(
               height: 50,
