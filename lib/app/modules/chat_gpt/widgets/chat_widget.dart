@@ -40,7 +40,7 @@ class ChatWidget extends StatelessWidget {
                 Expanded(
                   child: chatIndex == 0
                       ? TextWidget(
-                        color: Colors.grey,
+                          color: Colors.grey,
                           label: msg,
                         )
                       : shouldAnimate
