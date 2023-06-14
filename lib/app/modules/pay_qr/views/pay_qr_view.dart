@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -25,8 +28,11 @@ class PayQrView extends GetView<PayQrController> {
         children: [
           GestureDetector(
             onTap: () {
-              
-              Get.offAndToNamed(Routes.ORDER_SUCCESS);
+              BotToast.showLoading();
+              Timer(Duration(seconds: 2), () {
+                BotToast.closeAllLoading();
+                Get.offAndToNamed(Routes.ORDER_SUCCESS);
+              });
             },
             child: Container(
               padding: const EdgeInsets.all(10),
