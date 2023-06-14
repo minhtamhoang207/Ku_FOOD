@@ -29,7 +29,7 @@ class PayQrView extends GetView<PayQrController> {
           GestureDetector(
             onTap: () {
               BotToast.showLoading();
-              Timer(Duration(seconds: 2), () {
+              Timer(const Duration(seconds: 2), () {
                 BotToast.closeAllLoading();
                 Get.offAndToNamed(Routes.ORDER_SUCCESS);
               });
