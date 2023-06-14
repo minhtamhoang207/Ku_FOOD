@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
@@ -124,18 +127,18 @@ class CreateOrderView extends GetView<CreateOrderController> {
           children: [
             GestureDetector(
               onTap: () {
-                Get.offAndToNamed(Routes.PAY_QR);
-                // showModalBottomSheet(
-                //   context: context,
-                //   builder: (BuildContext context) {
-                //     return PaymentBottomSheet(
-                //       onTap: () {
-                //         final cacheManager = CacheManager.instance;
-                //         cacheManager.addProduct(controller.product.toLocal());
-                //       },
-                //     );
-                //   },
-                // );
+                // Get.offAndToNamed(Routes.PAY_QR);
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return PaymentBottomSheet(
+                      onTap: () {
+                        final cacheManager = CacheManager.instance;
+                        cacheManager.addProduct(controller.product.toLocal());
+                      },
+                    );
+                  },
+                );
               },
               child: Container(
                 padding: const EdgeInsets.all(16),
@@ -166,36 +169,25 @@ class PaymentBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200, // Set the desired height for the bottom sheet
+      height: 220, // Set the desired height for the bottom sheet
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const Gap(15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 10, left: 20),
-                child: SvgPicture.asset(
-                  Platform.isIOS
-                      ? Assets.icons.icApplePay
-                      : Assets.icons.icGooglePay,
-                  fit: BoxFit.cover,
-                  height: 50,
-                  width: 30,
-                ),
-              ),
-            ],
-          ),
           GestureDetector(
             onTap: () {
+              BotToast.showLoading();
               Get.back();
               onTap.call();
-              Get.offAndToNamed(Routes.PAY_QR);
+              Timer(Duration(seconds: 2), () {
+                BotToast.closeAllLoading();
+                Get.offAndToNamed(Routes.ORDER_SUCCESS);
+              });
             },
             child: Container(
               height: 50,
-              margin: const EdgeInsets.all(20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               decoration: BoxDecoration(
                 color: Colors.black,
                 borderRadius: BorderRadius.circular(8),
@@ -212,6 +204,102 @@ class PaymentBottomSheet extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
+                  Gap(12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Padding(
+                      // padding: const EdgeInsets.only(top: 10, left: 20),
+                      //child:
+                      SvgPicture.asset(
+                        Platform.isIOS
+                            ? Assets.icons.icApplePay
+                            : Assets.icons.icGooglePay,
+                        fit: BoxFit.cover,
+                        height: 30,
+                        width: 30,
+                        //  ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Gap(12),
+          GestureDetector(
+            onTap: () {
+              BotToast.showLoading();
+              Get.back();
+              onTap.call();
+              Timer(Duration(seconds: 2), () {
+                BotToast.closeAllLoading();
+                Get.offAndToNamed(Routes.ORDER_SUCCESS);
+              });
+            },
+            child: Container(
+              height: 50,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: Colors.blue[100],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Pay with Google Pay',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Gap(12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      // Padding(
+                      // padding: const EdgeInsets.only(top: 10, left: 20),
+                      //child:
+                      SvgPicture.asset(
+                        Assets.icons.icGooglePay,
+                        fit: BoxFit.cover,
+                        height: 50,
+                        // width: 60,
+                        //  ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Gap(12),
+          GestureDetector(
+            onTap: () {
+              Get.back();
+              onTap.call();
+              Get.offAndToNamed(Routes.PAY_QR);
+            },
+            child: Container(
+              height: 50,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: Colors.blue[100],
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Pay with QR',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Gap(12),
+                  Assets.images.qrcodeDefault.image(height: 30)
                 ],
               ),
             ),

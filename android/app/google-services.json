@@ -26,9 +26,47 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:858590846312:android:c7b8fabcd3f33dd6c2cadd",
+        "android_client_info": {
+          "package_name": "com.ku.ku_onifood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1T72S7nzLWeCRT93WakAIEPBFyLGushg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:858590846312:android:b431627c68c2086bc2cadd",
         "android_client_info": {
           "package_name": "com.ku.kufood"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1T72S7nzLWeCRT93WakAIEPBFyLGushg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858590846312:android:e20dd4b3f81e00f1c2cadd",
+        "android_client_info": {
+          "package_name": "com.ku.kuonifood"
         }
       },
       "oauth_client": [],

@@ -129,6 +129,10 @@ class $AssetsImagesGen {
   AssetGenImage get chatLogo =>
       const AssetGenImage('assets/images/chat_logo.png');
 
+  /// File path: assets/images/chat_logo1.png
+  AssetGenImage get chatLogo1 =>
+      const AssetGenImage('assets/images/chat_logo1.png');
+
   /// File path: assets/images/img_home.png
   AssetGenImage get imgHome =>
       const AssetGenImage('assets/images/img_home.png');
@@ -153,9 +157,23 @@ class $AssetsImagesGen {
   /// File path: assets/images/person.png
   AssetGenImage get person => const AssetGenImage('assets/images/person.png');
 
+  /// File path: assets/images/qrcode-default.png
+  AssetGenImage get qrcodeDefault =>
+      const AssetGenImage('assets/images/qrcode-default.png');
+
   /// List of all assets
-  List<dynamic> get values =>
-      [chatLogo, imgHome, imgSplash, logo, nameLogo, openaiLogo, pay, person];
+  List<dynamic> get values => [
+        chatLogo,
+        chatLogo1,
+        imgHome,
+        imgSplash,
+        logo,
+        nameLogo,
+        openaiLogo,
+        pay,
+        person,
+        qrcodeDefault
+      ];
 }
 
 class Assets {

@@ -25,6 +25,7 @@ class PayQrView extends GetView<PayQrController> {
         children: [
           GestureDetector(
             onTap: () {
+              
               Get.offAndToNamed(Routes.ORDER_SUCCESS);
             },
             child: Container(

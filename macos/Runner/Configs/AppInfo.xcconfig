@@ -8,7 +8,7 @@
 PRODUCT_NAME = kufood
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.ku.kufood
+PRODUCT_BUNDLE_IDENTIFIER = com.ku.kuonifood
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2023 com.ku. All rights reserved.

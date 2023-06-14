@@ -1,4 +1,4 @@
-package com.ku.ku_food
+package com.ku.kuonifood
 
 import io.flutter.embedding.android.FlutterActivity
 

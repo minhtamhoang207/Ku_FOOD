@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +17,7 @@ Future<void> main() async {
     GetMaterialApp(
       title: "Ku Food",
       initialRoute: AppPages.INITIAL,
+      builder: BotToastInit(),
       getPages: AppPages.routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(textTheme: GoogleFonts.beVietnamProTextTheme()),
